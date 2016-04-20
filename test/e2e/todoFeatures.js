@@ -1,6 +1,7 @@
 describe('Todos tracker', function() {
-  it('has a title', function() {
+  it('has a todo', function() {
     browser.get('/');
-    expect(browser.getTitle()).toEqual('Todos App');
+    ver todo = $('#todo');
+    expect(todo.getText()).toEqual('ToDo1');
   });
 });
