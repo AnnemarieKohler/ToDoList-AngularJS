@@ -12,7 +12,7 @@ describe('ToDoFactory', function() {
   });
 
   it('can be marked as complete', function() {
-    toDo.complete();
+    toDo.isComplete();
     expect(toDo.status).toBe(true);
   });
 });

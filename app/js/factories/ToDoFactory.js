@@ -4,8 +4,8 @@ toDoApp.factory('ToDoFactory', function() {
     this.status = (typeof status !== 'undefined') ? status : false;
   };
 
-  ToDo.prototype.complete = function() {
-    this.status = true;
+  ToDo.prototype.isComplete = function() {
+    this.status = !this.status;
   };
 
   return ToDo;

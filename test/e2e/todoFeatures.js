@@ -35,8 +35,7 @@ describe('Todos tracker', function() {
 
   it('can mark a ToDo as complete', function(){
     var todo = $$('#todo ul li').last();
-    todo.element(by.css('.complete')).click();
-
+    todo.element(by.css('.status')).click();
     expect(todo.getText()).toMatch("ToDo2: completed");
   });
 

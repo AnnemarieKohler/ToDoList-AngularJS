@@ -7,19 +7,24 @@
     <script src="js/controllers/ToDoController.js"></script>
     <script src="js/factories/ToDoFactory.js"></script>
     <script src="js/services/ToDoService.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <title>Todos App</title>
   </head>
   <body>
-    <div id="todo" ng-controller="ToDoController as controller">
-      <ul>
-        <li ng-repeat="todo in controller.todos">
-          {{ todo.text }}: {{ todo.status ? 'completed' : 'not completed' }}
-          <span class="complete" ng-click="todo.complete();">Complete</span>
-        </li>
-      </ul>
-      <input id="new-todo-name" type="text" ng-model="todoText">
-      <button id="add-todo" ng-click="controller.addToDo(todoText);">Add a ToDo</button>
-      <button id="remove-todo" ng-click="controller.removeToDo();">Remove a ToDo</button>
+    <div class="container">
+      <h1>To-Do List</h1>
+      <div id="todo" ng-controller="ToDoController as controller">
+        <ul class="list-unstyled">
+          <li ng-repeat="todo in controller.todos">
+            <input class="status" type="checkbox" ng-click="todo.isComplete();" name="name" value="">
+            <strong>{{ todo.text }}:</strong> {{ todo.status ? 'completed' : 'not completed' }}
+            <!-- <span ng-click="todo.complete();">Complete</span> -->
+          </li>
+        </ul>
+        <input class="form-control" id="new-todo-name" type="text" ng-model="todoText">
+        <button id="add-todo" ng-click="controller.addToDo(todoText);" class="btn btn-success">Add a ToDo</button>
+        <button id="remove-todo" ng-click="controller.removeToDo();" class="btn btn-warning">Remove a ToDo</button>
+      </div>
     </div>
   </body>
 </html>
