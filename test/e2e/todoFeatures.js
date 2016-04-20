@@ -1,8 +1,18 @@
 describe('Todos tracker', function() {
+  var mock = require('protractor-http-mock');
+
   beforeEach(function(){
-    // browser.get('/app');
+    mock([{
+      request: {
+        path: 'http://quiet-beach-24792.herokuapp.com/todos.json',
+        method: 'GET'
+      },
+      response: {
+        data: [{text: "ToDo1", completed: true}, {text: "ToDo2", completed: false}]
+      }
+    }]);
     browser.get('/');
-  })
+  });
 
   it('has todos', function() {
     var todos = $$('#todo ul li');
@@ -28,6 +38,10 @@ describe('Todos tracker', function() {
     todo.element(by.css('.complete')).click();
 
     expect(todo.getText()).toMatch("ToDo2: completed");
+  });
+
+  afterEach(function(){
+    mock.teardown();
   });
 
 });
