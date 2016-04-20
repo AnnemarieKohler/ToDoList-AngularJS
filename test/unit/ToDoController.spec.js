@@ -1,23 +1,22 @@
 describe('ToDoController', function() {
   beforeEach(module('toDoApp'));
 
-  var ctrl;
+  var ctrl, ToDoFactory;
 
-  beforeEach(inject(function($controller) {
+  beforeEach(inject(function($controller, _ToDoFactory_) {
     ctrl = $controller('ToDoController');
+    ToDoFactory = _ToDoFactory_;
   }));
 
   it('initialises with two toDos', function() {
-    var displayText = [
-      {text: "ToDo1", status: true},
-      {text: "ToDo2", status: false}
-    ];
-    expect(ctrl.todos).toEqual(displayText);
+    var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+    expect(ctrl.todos).toEqual([todo1, todo2]);
   });
 
   it('adds a new todo', function() {
     ctrl.addToDo("Wash the car");
-    var todo = {text: "Wash the car", status: false};
+    var todo = new ToDoFactory("Wash the car");
     expect(ctrl.todos.pop()).toEqual(todo);
   });
 
