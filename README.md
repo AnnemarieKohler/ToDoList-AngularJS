@@ -8,6 +8,7 @@ Simple to-do list written using AngularJS.
 ### Features
 * User can add/remove tasks
 * User can tick off tasks
+* Shows current status of task
 * A list of tasks is being called using an API
 
 
