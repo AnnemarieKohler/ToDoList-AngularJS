@@ -1,5 +1,5 @@
 toDoApp.factory('ToDoFactory', function() {
-  var ToDo = function(text, status){
+  function ToDo(text, status){
     this.text = text;
     this.status = (typeof status !== 'undefined') ? status : false;
   };
