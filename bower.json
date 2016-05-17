@@ -1,0 +1,20 @@
+{
+  "name": "further_more_javascript",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/claudiagreen/further_more_javascript",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.5"
+  }
+}
